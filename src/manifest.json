@@ -1,0 +1,24 @@
+{
+  "name": "MeoWoof",
+  "version": "1.0",
+  "description": "Chrome extension for cats and dogs lovers",
+  "permissions": ["activeTab", "storage", "webNavigation", "scripting"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "/assets/img/icon16.png",
+      "32": "/assets/img/icon32.png",
+      "48": "/assets/img/icon48.png"
+    }
+  },
+  "icons": {
+    "16": "/assets/img/icon16.png",
+    "32": "/assets/img/icon32.png",
+    "48": "/assets/img/icon48.png"
+  },
+  "manifest_version": 3
+}
