@@ -1,0 +1,41 @@
+.app-popup {
+  width: 400px;
+  background: #FFFFFF;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  &__logo {
+    display: flex;
+    align-items: center;
+    &-text {
+      margin-left: 8px;
+    }
+  }
+  &__top {
+    padding: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 200%;
+  }
+  &__bottom {
+    padding: 20px;
+    background: #694EF3;
+    border-radius: 12px;
+    color: #FFFFFF;
+    margin-top: 20px;
+    &-title {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    &-controls-wrap {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 200%;
+    }
+  }
+}

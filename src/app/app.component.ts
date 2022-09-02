@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'meo-woof';
+  public isShowIntro: boolean;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isShowIntro = !localStorage.getItem('hasSeenIntro');
+    if (!localStorage.getItem('hasSeenIntro')) {
+      localStorage.setItem('hasSeenIntro', 'true');
+    }
+  }
 }

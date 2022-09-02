@@ -1,0 +1,5 @@
+<label class="checkbox" [class.checkbox--large]="isLarge">
+  <div class="checkbox__text">{{labelText}} <b *ngIf="boldText">{{boldText}}</b></div>
+	<input type="checkbox" #checkbox [value]="value" (change)="toggleCheckbox()"/>
+  <div class="checkbox__control" [class.checkbox__control--large]="isLarge"></div>
+</label>
