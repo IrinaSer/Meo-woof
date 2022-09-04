@@ -1,15 +1,13 @@
-chrome.runtime.onInstalled.addListener( () => {
-  chrome.tabs.create({url:'index.html'},function(){});
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.tabs.create({url: 'index.html'}, function () {
+  });
 });
 
-chrome.storage.onChanged.addListener(
-  function(e) {
-    console.log('onChanged', e);
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      const id: number = tabs[0].id as number;
-      chrome.tabs.sendMessage(id, {greeting: "hello"}, function(response) {
-        console.log(response);
-      });
-    });
-  }
-);
+chrome.tabs.onActivated.addListener(() => {
+  chrome.tabs.query({active: true, currentWindow: true}).then((tabs) => {
+    const id = tabs[0].id;
+    if (id) {
+      chrome.tabs.sendMessage(id, {msg: 'onActivated'});
+    }
+  });
+});
