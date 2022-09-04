@@ -37,7 +37,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              {
+                "input": "src/contentScript.js",
+                "inject": false,
+                "bundleName": "contentScript"
+               }
+            ],
             "optimization": {
               "styles": {
                 "inlineCritical": false
