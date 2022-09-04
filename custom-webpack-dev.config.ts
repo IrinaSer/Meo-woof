@@ -7,8 +7,8 @@ module.exports = {
   mode: 'development',
   plugins: [
     new ExtensionReloader({
-      reloadPage: true, // Force the reload of the page also
-      entries: { // The entries used for the content/background scripts or extension pages
+      reloadPage: true,
+      entries: {
         background: 'background',
       }
     })
