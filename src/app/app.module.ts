@@ -3,18 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
-import { IntroPageComponent } from './components/intro-page/intro-page.component';
 import { PopupComponent } from './components/popup/popup.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     CheckboxComponent,
-    IntroPageComponent,
-    PopupComponent
+    PopupComponent,
+    HomepageComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
