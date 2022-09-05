@@ -10,30 +10,29 @@ export class CheckboxComponent implements OnInit {
   @Input() boldText: string;
   @Input() isLarge: boolean;
   @Input() value: string;
+  @Input() isChecked: boolean;
 
-  @Output() checkboxChanged = new EventEmitter();
+  @Output() checkboxChange = new EventEmitter<boolean>();
 
   @ViewChild('checkbox', {static: true}) checkboxElement: ElementRef;
-  color = 'blue';
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    const savedValue = localStorage.getItem(this.value);
-    this.checkboxElement.nativeElement.checked = savedValue === 'true';
-    /* chrome.runtime.onMessage.addListener(
-      function(request, sender, sendResponse) {
-        if (request.greeting === "hello")
-          sendResponse({farewell: "goodbye"});
-      }
-    ); */
+    const key = this.value;
+    const isChecked = this.isChecked;
+    chrome.storage.sync.get([key], (result) => {
+      this.checkboxElement.nativeElement.checked = isChecked ? true : result[key] === 'true';
+    });
   }
 
   public toggleCheckbox(): void {
-    localStorage.setItem(this.value, String(this.checkboxElement.nativeElement.checked));
-    /* chrome.storage.sync.set({key: val}, function() {
-      console.log('Value is set ', key, val);
-    }); */
+    const key = this.value;
+    const p: any = {};
+    p[key] = String(this.checkboxElement.nativeElement.checked);
+
+    chrome.storage.sync.set(p);
+    this.checkboxChange.emit(this.checkboxElement.nativeElement.checked);
   }
 
 }
